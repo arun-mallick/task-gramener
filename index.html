@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lib/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="lib/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>
+    <div class="container-fluid" ng-controller="Controller">
+        <div class="align-center">
+            <div>
+                <h1>Box Builder</h1>
+                <h3>Start Building</h3>
+            </div>
+            <div>
+                <button class="btn btn-success" ng-click="addBox()">Add Box</button>
+                <button class="btn btn-danger" ng-click="removeBox()">Remove Box</button>
+            </div>
+            <div>
+                <h6 ng-show="!arr.length">No Boxes</h6>
+            </div>
+            <div class="appn">
+                 <div class="square" ng-class="{'black': ($index+1) %2 == 0,'mul5': ($index+1)%5 == 0}" ng-repeat="i in arr track by $index">{{$index+1}}</div> 
+            </div>
+            <div ng-if="arr.length">
+                <h1  class="count" ng-style="obj">{{arr.length}}</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
